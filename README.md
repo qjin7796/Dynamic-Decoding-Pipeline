@@ -24,5 +24,7 @@
 ## List of modules
 
 # TODO List
+## Stimulus-model-based encoding
+## Representational-similarity-based encoding
 
 # Citation
