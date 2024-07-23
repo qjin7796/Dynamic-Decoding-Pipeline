@@ -21,10 +21,10 @@
 - ## End-to-end RSA
 - ## End-to-end decoding
 - ## General workflow
-  1. ### Define procedure
-  2. ### Prepare data
-  3. ### Execute and monitor progress
-  4. ### Visualize results
+1. ### Define procedure
+2. ### Prepare data
+3. ### Execute and monitor progress
+4. ### Visualize results
 - ## List of modules
 
 # TODO List
