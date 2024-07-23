@@ -3,6 +3,11 @@
 # Figure
 
 # Contents
+- ## Installation
+- ## Usage
+- ## Demos
+- ## TODO List
+- ## Citation
 
 # Installation
 - ### From source
@@ -14,8 +19,10 @@
   - ### GPU CUDA
   - ### GPU MacOS
 ## Testing installation
-- ### Testing end-to-end RSA
-- ### Testing end-to-end decoding
+- ### Testing end-to-end RSA with CPU
+- ### Testing end-to-end RSA with GPU CUDA
+- ### Testing end-to-end decoding with CPU
+- ### Testing end-to-end decoding with GPU CUDA
 
 # Usage
 - ## End-to-end RSA
@@ -27,7 +34,14 @@
 4. ### Visualize results
 - ## List of modules
 
+# Demos
+- ## Video feature extraction
+- ## RSA
+- ## Decoding
+
 # TODO List
+- ## Testing end-to-end RSA with GPU MacOS
+- ## Testing end-to-end decoding with GPU MacOS
 - ## Stimulus-model-based encoding
 - ## Representational-similarity-based encoding
 
