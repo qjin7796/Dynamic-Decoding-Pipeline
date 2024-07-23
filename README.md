@@ -9,7 +9,7 @@
 - ## TODO List
 - ## Citation
 
-# Installation
+[# Installation](#installation)
 - ### From source
   - #### CPU only
   - #### GPU CUDA
