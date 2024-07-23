@@ -3,13 +3,13 @@
 # Figure
 
 # Contents
-- ## Installation
+- ## [Installation](#installation)
 - ## Usage
 - ## Demos
 - ## TODO List
 - ## Citation
 
-[# Installation](#installation)
+# Installation
 - ### From source
   - #### CPU only
   - #### GPU CUDA
