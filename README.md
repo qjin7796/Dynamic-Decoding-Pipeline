@@ -13,11 +13,9 @@
 - #### From source
   - **CPU only**
   - **GPU CUDA**
-  - **GPU MacOS**
 - #### Using a Docker container
   - **CPU only**
   - **GPU CUDA**
-  - **GPU MacOS**
 - #### Testing installation
   - **Testing end-to-end RSA with CPU**
   - **Testing end-to-end RSA with GPU CUDA**
@@ -46,8 +44,7 @@
 - #### Decoding
 
 ### TODO List
-- #### Testing end-to-end RSA with GPU MacOS
-- #### Testing end-to-end decoding with GPU MacOS
+- #### Using GPU MacOS
 - #### Stimulus-model-based encoding
 - #### Representational-similarity-based encoding
 
