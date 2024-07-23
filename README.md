@@ -6,9 +6,9 @@
 
 # Installation
 - From source
-- CPU only
-- GPU CUDA
-- GPU MacOS
+  - CPU only
+  - GPU CUDA
+  - GPU MacOS
 ## - Using a Docker container
 ### -- CPU only
 ### -- GPU CUDA
