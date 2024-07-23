@@ -3,26 +3,26 @@
 # Figure
 
 # Contents
-- ## [Installation](#installation)
-- ## Usage
-- ## Demos
-- ## TODO List
-- ## Citation
+- [Installation](#installation)
+- [Usage](#usage)
+- [Demos](#demos)
+- [TODO List](#todo-list)
+- [Citation](#citation)
 
 # Installation
-- ### From source
-  - #### CPU only
-  - #### GPU CUDA
-  - #### GPU MacOS
+- ## From source
+  - ### CPU only
+  - ### GPU CUDA
+  - ### GPU MacOS
 - ## Using a Docker container
   - ### CPU only
   - ### GPU CUDA
   - ### GPU MacOS
-## Testing installation
-- ### Testing end-to-end RSA with CPU
-- ### Testing end-to-end RSA with GPU CUDA
-- ### Testing end-to-end decoding with CPU
-- ### Testing end-to-end decoding with GPU CUDA
+- ## Testing installation
+  - ### Testing end-to-end RSA with CPU
+  - ### Testing end-to-end RSA with GPU CUDA
+  - ### Testing end-to-end decoding with CPU
+  - ### Testing end-to-end decoding with GPU CUDA
 
 # Usage
 - ## End-to-end RSA
