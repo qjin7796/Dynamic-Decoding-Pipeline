@@ -23,25 +23,54 @@
   - **Testing end-to-end decoding with GPU CUDA**
 
 ### Usage
-- #### End-to-end RSA
-- #### End-to-end decoding
-- #### General workflow
-1. **Define procedure**
-2. **Prepare data**
-3. **Execute and monitor progress**
-4. **Visualize results**
-- #### List of modules
-  - **brain_activity**
-  - **brain_activity_pattern**
-  - **stimulus_feature**
-  - **stimulus_feature_pattern**
-  - **rsa**
-  - **decoding**
+#### General procedure
+1. **Define workflow**
+  Function: dnd.define(user_dict)
+  User input: a dictionary of modules and functions to use.
+    Example: `{brain_activity_pattern: [lss_glm, group_rdm], stimulus_feature_pattern, rsa]`
+  Output: dnd.workflow, parameters for every function in the specisfied module; dnd.log, user input.
+    Example: `dnd.workflow = {
+      'brain_activity_pattern': {
+          'bids_derivative_path': None, # raise error if None
+          'output_path': None, # if None, create brain_activity_pattern.bids_derivative_path/brain_activity_pattern
+          'subject_list': [],
+          'lss_glm': {'fwhm': 1.5, 'drift': 'cosine', 'hrf': 'spm', ...},
+          # 'lsa_glm': {},
+          'group_rdm': {'metric': 'euclidean', 'exclude_subject': []},
+          # 'individual_rdm': {},
+          
+      },
+      'stimulus_feature_pattern': {
+          'stimulus_path': None, # raise error if None
+          'output_path': None, # if None, create stimulus_feature_pattern.stimulus_path/stimulus_feature_pattern
+          'stimulus_type': 'avi', # avi/mp4/npz/pkl/jpg/png
+          'stimulus_list': [],
+          'features': ['luminance', 'contrast', 'optical-flow', 'hog', 'silhouette', ...],
+          'metric': 'euclidean',
+      },
+      'rsa': {
+          'input_path': None, # if None, use brain_activity_pattern.output_path
+          'output_path': None, # if None, create rsa.input_path/rsa
+          'target_list': [], # group_rdm/individual_rdm
+          'metric': 'cosine',
+          'correction': {'fdr-alpha': 0.05, 'q-thr': 0.05, 'z-thr': 1.96, 'cluster-size': 10},
+      },
+   }`
+3. **Define data and parameters**
+  Function: dnd.update(user_dict)
+  User input: update dnd.workflow keys and values
+    Example: dnd.update({'brain_activity_pattern': 'lss_glm': {'fwhm': 0}}) will change dnd.workflow.brain_activity_pattern.lss_glm.fwhm from 1.5 to 0.
+  Output: updated dnd.workflow and dnd.log.
+5. **Execute and monitor progress**
+  Function: dnd_run(monitor=True)
+  User call dnd_run()
+7. **Visualize results**
+  Function: dnd_vis()
 
 ### Demos
 - #### Stimulus feature patterns
 - #### RSA
-- #### Decoding
+- #### MVPA classification
 
 ### TODO List
 - #### Using GPU MacOS
