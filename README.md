@@ -25,14 +25,14 @@
 ### Usage
 #### General procedure
 1. **Define workflow**
-<br />Function: dnd.define(user_dict)
-<br />User input: a dictionary of modules and functions to use.
-<br />  Example: `{brain_activity_pattern: [lss_glm, group_rdm], stimulus_feature_pattern, rsa}`
-<br />Output: dnd.workflow, parameters for every function in the specisfied module; dnd.log, user input.
-<br />  Example:
 ```
-dnd.workflow = {
-      brain_activity_pattern: {
+dnd.define(user_dict)
+  User input: a dictionary of modules and functions to use.
+    Example: {brain_activity_pattern: [lss_glm, group_rdm], stimulus_feature_pattern, rsa}
+  Output: dnd.workflow, parameters for every function in the specisfied module; dnd.log, user input.
+    Example:
+      dnd.workflow = {
+        brain_activity_pattern: {
           bids_derivative_path: None, # raise error if None
           output_path: None, # if None, create brain_activity_pattern.bids_derivative_path/brain_activity_pattern
           subject_list: [],
@@ -40,8 +40,8 @@ dnd.workflow = {
           # lsa_glm: {},
           group_rdm: {metric: euclidean, exclude_subject: []},
           # individual_rdm: {},
-      },
-      stimulus_feature_pattern: {
+        },
+        stimulus_feature_pattern: {
           stimulus_path: None, # raise error if None
           output_path: None, # if None, create stimulus_feature_pattern.stimulus_path/stimulus_feature_pattern
           stimulus_type: avi, # avi/mp4/npz/pkl/jpg/png
@@ -49,15 +49,15 @@ dnd.workflow = {
           features: [luminance, contrast, optical-flow, hog, ...], # list of features
           feature_mask_list: [], # a list of masks to filter features
           metric: euclidean,
-      },
-      rsa: {
+        },
+        rsa: {
           input_path: None, # if None, use brain_activity_pattern.output_path
           output_path: None, # if None, create rsa.input_path/rsa
           target_list: [], # group_rdm/individual_rdm
           metric: cosine,
           correction: {fdr-alpha: 0.05, q-thr: 0.05, z-thr: 1.96, cluster-size: 10},
-      },
-}
+        },
+      }
 ```
 2. **Define data and parameters**
   Function: dnd.update(user_dict)
