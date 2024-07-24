@@ -1,4 +1,4 @@
-## Dynamic-Neural-Decoding
+## Dynamic-Neural-Decoding-Pipeline
 
 ### Figure
 
