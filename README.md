@@ -25,9 +25,9 @@
 ### Usage
 #### General procedure
 1. **Define workflow**
-  Function: dnd.define(user_dict)
-  User input: a dictionary of modules and functions to use.
-    Example: `{brain_activity_pattern: [lss_glm, group_rdm], stimulus_feature_pattern, rsa]`
+<br />Function: dnd.define(user_dict)
+<br />User input: a dictionary of modules and functions to use.
+<br />Example: `{brain_activity_pattern: [lss_glm, group_rdm], stimulus_feature_pattern, rsa]`
   Output: dnd.workflow, parameters for every function in the specisfied module; dnd.log, user input.
     Example: `dnd.workflow = {
       brain_activity_pattern: {
