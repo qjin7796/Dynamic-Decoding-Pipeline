@@ -29,7 +29,7 @@ Figure 2
 3. Configure the pipeline `dndp.configure(update_param={})`
 4. Execute `dndp.run(monitor=True)`
 
-#### Demos
+### Demos
 - **Stimulus feature pattern computation**
 ```
 python demo_stimulus_feature_pattern.py
