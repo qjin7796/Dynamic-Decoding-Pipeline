@@ -22,12 +22,13 @@ Configure `dndp_job.py` and run
 ```
 python dndp_job.py
 ```
-#### General procedure
+#### Interactive mode
 Figure 2
 1. Import modules `from utils import *`
 2. Initialize a pipeline `dndp(list_of_analyses=[])`. See [analysis module](AnalysisModule.md) for details.
 3. Configure the pipeline `dndp.configure(update_param={})`
 4. Execute `dndp.run(monitor=True)`
+5. Check output `print(dndp.summary)`
 
 ### Demos
 - **Stimulus feature pattern computation**
