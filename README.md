@@ -1,13 +1,13 @@
 ## Dynamic-Neural-Decoding-Pipeline
 
-### Figure
+Figure 1
 
 ### Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Demos](#demos)
 - [TODO List](#todo-list)
-- [Citation](#citation)
+- Citation
 
 ### Installation
 - #### From source
@@ -26,6 +26,7 @@ Configure `dndp_job.py` and run
 python dndp_job.py
 ```
 #### General procedure
+Figure 2
 1. Import modules `from utils import *`
 2. Initialize a pipeline `dndp(list_of_analyses=[])`. See **analysis module** for details.
 3. Configure the pipeline `dndp.configure(update_param={})`
