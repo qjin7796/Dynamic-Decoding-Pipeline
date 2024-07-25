@@ -52,6 +52,4 @@ python demo_rs_encoding.py
 ### TODO List
 - [ ] Support GPU MacOS
 - [ ] Support stimulus-feature-based encoding
-
-### Citation
-- [ ] In preparation.
+- [ ] Citation
