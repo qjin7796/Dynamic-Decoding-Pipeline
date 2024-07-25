@@ -54,3 +54,4 @@ python demo_rs_encoding.py
 - [ ] Support stimulus-feature-based encoding
 
 ### Citation
+- [ ] In preparation.
