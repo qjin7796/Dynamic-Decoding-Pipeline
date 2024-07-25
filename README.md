@@ -13,9 +13,6 @@ Figure 1
 - #### From source
   - **CPU only**
   - **GPU CUDA**
-- #### Using a Docker container
-  - **CPU only**
-  - **GPU CUDA**
 - #### Testing installation
   - See [Demos](#demos)
 
@@ -51,6 +48,7 @@ python demo_rs_encoding.py
 ```
 
 ### TODO List
+- [ ] Add Docker containers
 - [ ] Support GPU MacOS
 - [ ] Support stimulus-feature-based encoding
 - [ ] Citation
