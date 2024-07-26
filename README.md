@@ -21,6 +21,7 @@ conda create -n dndp_env python=3.10
 conda activate dndp_env
 
 # Install dependencies
+# See requirements.txt for details
 chmod +x setup.sh
 ./setup.sh
 ```
