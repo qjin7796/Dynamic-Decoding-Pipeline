@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Updating the system and installing essentials
 
 sudo apt-get update
