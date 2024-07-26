@@ -24,7 +24,7 @@ conda activate dndp_env
 chmod +x setup.sh
 ./setup.sh
 ```
-- #### Using Docker
+- #### Using Docker (prerequisite: docker, nvidia-docker2)
 ```
 # Download latest docker image
 docker pull dndp/dndp:latest
@@ -55,19 +55,11 @@ docker run --runtime=nvidia --rm image_id dndp_job.py
 ### Demos
 - **Stimulus feature pattern computation**
 ```
-python demo_stimulus_feature_pattern.py
+python demos/demo_stimulus_feature_pattern.py
 ```
 - **Representational similarity analysis**
 ```
-python demo_rsa.py
-```
-- **Multivoxel pattern classification**
-```
-python demo_mvpa_cls.py
-```
-- **Representation-similarity-based encoding**
-```
-python demo_rs_encoding.py
+python demos/demo_rsa.py
 ```
 
 ### TODO List
