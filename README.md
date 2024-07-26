@@ -1,5 +1,5 @@
 ## Dynamic-Neural-Decoding-Pipeline
-![alt text](docs/dndp_overview.jpg)
+![alt text](docs/dndp_overview.png)
 
 ### Contents
 - [Installation](#installation)
