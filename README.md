@@ -10,7 +10,7 @@ Figure 1
 - Citation
 
 ### Installation
-- #### From source (prerequisite: CUDA 11.3)
+- #### From source (dependency: CUDA 11.3)
 ```
 # Clone repository
 git clone https://github.com/qjin7796/Dynamic-Neural-Decoding-Pipeline.git
@@ -20,12 +20,12 @@ cd Dynamic-Neural-Decoding-Pipeline
 conda create -n dndp_env python=3.10
 conda activate dndp_env
 
-# Install dependencies
+# Install pipeline
 # See requirements.txt for details
 chmod +x setup.sh
 ./setup.sh
 ```
-- #### Using Docker (prerequisite: docker, nvidia-docker2)
+- #### Using Docker (dependencies: docker, nvidia-docker2)
 ```
 # Download latest docker image
 docker pull dndp/dndp:latest
