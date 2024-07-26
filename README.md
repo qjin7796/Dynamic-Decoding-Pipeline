@@ -1,6 +1,5 @@
 ## Dynamic-Neural-Decoding-Pipeline
-
-Figure 1
+![alt text](docs/dndp_overview.jpg)
 
 ### Contents
 - [Installation](#installation)
@@ -48,7 +47,7 @@ docker run --runtime=nvidia --rm image_id dndp_job.py
 
 #### Interactive mode
 1. Import modules `from utils import *`
-2. Initialize a pipeline `dndp(list_of_analyses=[])`. See [analysis module](AnalysisModule.md) for details.
+2. Initialize a pipeline `dndp(list_of_analyses=[])`. See [analysis module](docs/AnalysisModule.md) for details.
 3. Configure the pipeline `dndp.configure(update_param={})`
 4. Execute `dndp.run(monitor=True)`
 5. Check output `print(dndp.summary)`
