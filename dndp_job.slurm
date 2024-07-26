@@ -59,8 +59,6 @@ python3 script_feature_comparison_gpu.py
 # To run a python script in the built container environment, run:
 # singularity exec ... python3 -m  # see python cmd: https://stackoverflow.com/questions/7610001/what-is-the-purpose-of-the-m-switch & https://docs.python.org/3/using/cmdline.html
 
-
-
 # FATAL:   While checking container encryption: could not open image /data/leuven/347/vsc34741/containers/singularity_homes/keops-full/keops-full.sif: failed to retrieve path for /data/leuven/347/vsc34741/containers/singularity_homes/keops-full/keops-full.sif: lstat /vsc-hard-mounts/leuven-data/347/vsc34741/containers/singularity_homes/keops-full/keops-full.sif: no such file or directory
 # + python3 -m /data/leuven/347/vsc34741/code/chamfer_distance/script_feature_comparison_gpu.py
 # /data/leuven/347/vsc34741/miniconda3/bin/python3: Error while finding module specification for '/data/leuven/347/vsc34741/code/chamfer_distance/script_feature_comparison_gpu.py' (ModuleNotFoundError: No module named '/data/leuven/347/vsc34741/code/chamfer_distance/script_feature_comparison_gpu'). Try using '/data/leuven/347/vsc34741/code/chamfer_distance/script_feature_comparison_gpu' instead of '/data/leuven/347/vsc34741/code/chamfer_distance/script_feature_comparison_gpu.py' as the module name.
