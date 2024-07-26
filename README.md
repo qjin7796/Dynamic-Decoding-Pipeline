@@ -10,20 +10,42 @@ Figure 1
 - Citation
 
 ### Installation
-- #### From source
-  - **CPU only**
-  - **GPU CUDA**
-- #### Testing installation
-  - See [Demos](#demos)
+- #### From source (prerequisite: CUDA 11.3)
+```
+# Clone repository
+git clone https://github.com/qjin7796/Dynamic-Neural-Decoding-Pipeline.git
+cd Dynamic-Neural-Decoding-Pipeline
+
+# Create a virtual environment
+conda create -n dndp_env python=3.10
+conda activate dndp_env
+
+# Install dependencies
+chmod +x setup.sh
+./setup.sh
+```
+- #### Using Docker
+```
+# Download latest docker image
+docker pull dndp/dndp:latest
+```
 
 ### Usage
 #### One-line command
-Configure `dndp_job.py` and run 
+Configure your `dndp_job.py` and run
 ```
+# Locally
 python dndp_job.py
+
+# On a cluster
+sbatch dndp_job.slurm
+
+# Using docker
+ADD /path/to/dndp_job.py /path/to/docker/image
+docker run --runtime=nvidia --rm image_id dndp_job.py
 ```
+
 #### Interactive mode
-Figure 2
 1. Import modules `from utils import *`
 2. Initialize a pipeline `dndp(list_of_analyses=[])`. See [analysis module](AnalysisModule.md) for details.
 3. Configure the pipeline `dndp.configure(update_param={})`
@@ -49,7 +71,6 @@ python demo_rs_encoding.py
 ```
 
 ### TODO List
-- [ ] Add Docker containers
 - [ ] Support GPU MacOS
 - [ ] Support stimulus-feature-based encoding
 - [ ] Citation
