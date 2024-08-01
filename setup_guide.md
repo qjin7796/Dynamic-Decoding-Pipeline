@@ -17,7 +17,15 @@ which python
 
 # Install requirements
 python3.11 -m pip install -U -r /path/to/requirements.txt
+
+
+# In VS Code, you may need to reload window and/or modify settings.json
+# to enable selection of the new python interpreter
+# Reload window: control/command + shift + P and select "reload window"
+# Edit settings.json: 
+# "python.defaultInterpreterPath": "/path/to/dndp_env/bin/python"
 ```
+
 
 ### Tested requirements version
 nilearn==0.10.4
