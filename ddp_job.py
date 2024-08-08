@@ -10,15 +10,15 @@
 # 3. Define the input and output paths
 #
 # Configuration command:
-# One-line mode: edit dndp_job.py directly.
+# One-line mode: edit ddp_job.py directly.
 # Interactive mode: 
 #   from utils import *
-#   my_dndp = dndp(<list_of_analysis_names>)
-#   my_dndp.update(<dict_of_params>)
+#   my_ddp = ddp(<list_of_analysis_names>)
+#   my_ddp.update(<dict_of_params>)
 #
 # Execution command:
-# One-line mode: python dndp_job.py
-# Interactive mode: my_dndp.run()
+# One-line mode: python ddp_job.py
+# Interactive mode: my_ddp.run()
 
 
 # 1. List of analyses to be performed
