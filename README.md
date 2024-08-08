@@ -15,7 +15,7 @@ git clone https://github.com/qjin7796/Dynamic-Decoding-Pipeline.git
 cd Dynamic-Decoding-Pipeline
 
 # Create a virtual environment
-conda create -n ddp_env python=3.10
+conda create -n ddp_env python=3.11
 conda activate ddp_env
 
 # Install pipeline
