@@ -1,23 +1,22 @@
 ## Dynamic-Neural-Decoding-Pipeline
-![alt text](docs/dndp_overview.png)
+![alt text](docs/dynamic-decoding-pipeline.png)
 
 ### Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Demos](#demos)
-- [TODO List](#todo-list)
-- Citation
+- [Citation](#citation)
 
 ### Installation
 - #### From source (dependency: CUDA 11.3)
 ```
 # Clone repository
-git clone https://github.com/qjin7796/Dynamic-Neural-Decoding-Pipeline.git
-cd Dynamic-Neural-Decoding-Pipeline
+git clone https://github.com/qjin7796/Dynamic-Decoding-Pipeline.git
+cd Dynamic-Decoding-Pipeline
 
 # Create a virtual environment
-conda create -n dndp_env python=3.10
-conda activate dndp_env
+conda create -n ddp_env python=3.10
+conda activate ddp_env
 
 # Install pipeline
 # See requirements.txt for details
@@ -27,30 +26,30 @@ chmod +x setup.sh
 - #### Using Docker (dependencies: docker, nvidia-docker2)
 ```
 # Download latest docker image
-docker pull dndp/dndp:latest
+docker pull ddp/ddp:latest
 ```
 
 ### Usage
 #### One-line command
-Configure your `dndp_job.py` and run
+Configure your `ddp_job.py` and run
 ```
 # Locally
-python dndp_job.py
+python ddp_job.py
 
 # On a cluster
-sbatch dndp_job.slurm
+sbatch ddp_job.slurm
 
 # Using docker
-ADD /path/to/dndp_job.py /path/to/docker/image
-docker run --runtime=nvidia --rm image_id dndp_job.py
+ADD /path/to/ddp_job.py /path/to/docker/image
+docker run --runtime=nvidia --rm image_id ddp_job.py
 ```
 
 #### Interactive mode
 1. Import modules `from utils import *`
-2. Initialize a pipeline `dndp(list_of_analyses=[])`. See [analysis module](docs/AnalysisModule.md) for details.
-3. Configure the pipeline `dndp.configure(update_param={})`
-4. Execute `dndp.run(monitor=True)`
-5. Check output `print(dndp.summary)`
+2. Initialize a pipeline `ddp(list_of_analyses=[])`. See [analysis module](docs/AnalysisModule.md) for details.
+3. Configure the pipeline `ddp.configure(update_param={})`
+4. Execute `ddp.run(monitor=True)`
+5. Check output `print(ddp.summary)`
 
 ### Demos
 - **Stimulus feature pattern computation**
@@ -62,7 +61,4 @@ python demos/demo_stimulus_feature_pattern.py
 python demos/demo_rsa.py
 ```
 
-### TODO List
-- [ ] Support GPU MacOS
-- [ ] Support stimulus-feature-based encoding
-- [ ] Citation
+### Citation
