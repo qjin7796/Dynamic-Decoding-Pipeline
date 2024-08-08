@@ -66,11 +66,22 @@ analysis_param_dict = {
             "mask": None,  # str, path to ROI mask file, None for whole space
             "searchlight_radius": 0,  # float, searchlight radius in mm, 0 for no searchlight
             "stats": "t-value",  # {"t-value", "z-score", "psc"}, default="t-value"
+            "t_r": 0,  # float, repitition time in seconds
             "smoothing_fwhm": 3,  # float, smoothing kernel size in mm, 0 for no smoothing
             "estimator": "svc",  # {"svc", "svc_l1", "svc_l2", "logistic", "ridge"}, default="svc"
             "cv": 10,  # int, number of folds for cross-validation, default=10
             "scoring": "roc_auc",  # {"accuracy", "f1", "precision", "recall", "roc_auc"} or Callable, default="roc_auc"
+            "standardize": True,  # bool, default=True
+            "n_jobs": -1,  # int, number of jobs for parallel processing, default=-1, i.e. all processors
+            "random_state": None,  # int, RandomState instance or None, default=None
         },
     },
 }
 
+
+if __name__ == "__main__":
+    from utils import *
+
+    dndp = DNDP(analysis_param_dict)
+    result = dndp.run()
+    print(f"Summary:\n{result.summary}")

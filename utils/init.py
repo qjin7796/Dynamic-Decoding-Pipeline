@@ -1,107 +1,62 @@
-from dataclasses import dataclass
-from numpy import ndarray
-
-from typing import Any, Callable
+import numpy as np, cv2
 
 
-# Aliases for the type of the preprocessing methods: (ndarray, params) -> ndarray
-# and the type of the parameters
-PreprocessingParameters = dict[str, Any]
-PreprocessingMethod = Callable[[ndarray, PreprocessingParameters], ndarray]
-
-
-# Define your preprocessing functions here...
-def example_preprocessing(data: ndarray, params: PreprocessingParameters) -> ndarray:
-    ...
-
-
-# Map analysis names to functions
-preprocessing_name_to_function: dict[str, PreprocessingMethod] = {
-    "example_preprocessing": example_preprocessing,
-    # ...
+default_params = {
+    "video_feature": {
+        "video_list": [],  # list of str or /path/to/video_list.txt
+        "input_path": "/path/to/list/of/videos",
+        "output_path": "/path/to/output",
+        "feature": {
+            
+        }
+    },
+    "mri_feature": {
+        "input_path": "/path/to/bids_derivatives",  # in bids format
+        "output_path": "/path/to/output",
+        "glm": {
+            "mask": None,  # str, path to mask file or None
+            "tr": 0,  # float, repitition time in seconds
+            "slice_time_ref": 0,  # float, default=0
+            "signal_scaling": 0,  # False, int or (int, int), default=0
+            "contrast": None,  # str, contrast variable in events.tsv
+            "contrast_type": "lss",  # {"lss", "lsa"}, default="lss"
+            "confounds": [],  # list of str, confound variables in confounds.tsv
+            "hrf_model": "spm",  # {"spm", "glover", "mion"}, default="spm"
+            "time_deriv": False,  # if True, the time derivative regressor is added to the design matrix
+            "noise_model": "ar1",  # {"ar1", "ols"}, default="ar1"
+            "drift_model": "cosine",  # {"cosine", "polynomial", None}, default="cosine"
+            "drift_order": 1,  # int, default=1, only used if drift_model is "polynomial"
+            "high_pass": 0.01,  # float, default=0.01, only used if drift_model is "cosine"
+            "smoothing_fwhm": 3,  # float, smoothing kernel size in mm, 0 for no smoothing
+        },
+    },
+    "mvpa_cls": {
+        "input_path": "/path/to/bids_derivatives",  # in bids format
+        "output_path": "/path/to/output",
+        "mvpa_cls": {
+            "mask": None,  # str, path to ROI mask file, None for whole space
+            "searchlight_radius": 0,  # float, searchlight radius in mm, 0 for no searchlight
+            "stats": "t-value",  # {"t-value", "z-score", "psc"}, default="t-value"
+            "t_r": 0,  # float, repitition time in seconds
+            "smoothing_fwhm": 3,  # float, smoothing kernel size in mm, 0 for no smoothing
+            "estimator": "svc",  # {"svc", "svc_l1", "svc_l2", "logistic", "ridge"}, default="svc"
+            "cv": 10,  # int, number of folds for cross-validation, default=10
+            "scoring": "roc_auc",  # {"accuracy", "f1", "precision", "recall", "roc_auc"} or Callable, default="roc_auc"
+            "standardize": True,  # bool, default=True
+            "n_jobs": -1,  # int, number of jobs for parallel processing, default=-1, i.e. all processors
+            "random_state": None,  # int, RandomState instance or None, default=None
+        },
+    },
 }
 
 
-# Aliases for the type of the analysis methods: (ndarray, params) -> ndarray
-# and the type of the parameters
-AnalysisParameters = dict[str, Any]
-AnalysisMethod = Callable[[ndarray, AnalysisParameters], ndarray]
-
-
-# Define your preprocessing functions here...
-def example_analysis(data: ndarray, params: AnalysisParameters) -> ndarray:
-    ...
-
-
-# Map analysis names to functions
-analysis_name_to_function: dict[str, AnalysisMethod] = {
-    "example_analysis": example_analysis,
-    # ...
-}
-
-
-@dataclass
-class DNDP:
-    """Pipeline class"""
-
-    # def __init__(self,
-    #              inputs: list[ndarray],
-    #              preprocessing_names: list[str],
-    #              analysis_names: list[str]) -> None:
-
-    #     self.inputs = inputs
-
-    #     # Initialize internal data structures
-    #     self.preprocessing_and_analysis_params: dict[str, dict[str, ...]] = {}
-    #     self.preprocessing_methods = [ preprocessing_names[name] for name in preprocessing_names ]
-    #     self.analysis_methods = [ analysis_names[name] for name in analysis_names ]
-
-    #     # This will hold the internal intermediary data
-    #     self.data: ndarray = []
-
-    inputs: list[ndarray]
-    preprocessing_and_analysis_params: dict[str, dict[str, ...]]
-    preprocessing_methods: list[PreprocessingMethod]
-    analysis_methods: list[AnalysisMethod]
-    data: ndarray
-
-    def update(self, preproc_or_analysis_name: str, param_name: str, param_value: int) -> None:
-        """Update a parameter of a preprocessing or analysis method."""
-        # Something like that
-        if preproc_or_analysis_name in self.preprocessing_and_analysis_params:
-            self.preprocessing_and_analysis_params[preproc_or_analysis_name][param_name] = param_value
-        else:
-            self.preprocessing_and_analysis_params[preproc_or_analysis_name] = { param_name: param_value }
-
-    def run(self) -> ndarray:
-        """Run the pipeline and return the result."""
-        self.data = self.read_input()  # Parse the inputs into the initial ndarray data
-        self.data = self.preprocess(self.data)  # Preprocess
-        self.data = self.analyse(self.data)
-        return self.data
-
-    def read_input(self) -> ndarray:
-        # TODO: parse self.inputs into the initial ndarray data
-        ...
-
-    def preprocess(self, data: ndarray) -> ndarray:
-        # Apply the preprocessing methods sequentially to the data
-        for preproc in self.preprocessing_methods:
-            params = self.preprocessing_and_analysis_params[preproc.__name__]
-            self.data = preproc(self.data, params)
-
-    def analyse(self, data: ndarray) -> ndarray:
-        # Apply the analysis methods sequentially to the data
-        for analysis in self.analysis_methods:
-            params = self.analysis_methods[analysis.__name__]
-            self.data = analysis(self.data, params)
-
-
-if __name__ == "__main__":
-    dndp = DNDP()
-
-    # User configures pipeline and provides input
-    dndp.workflow()
-
-    result = dndp.run()
-    print(f"Pipeline result:\n{result}")
+def read_video(video: str) -> np.ndarray:
+    cap = cv2.VideoCapture(video)
+    frames = []
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+        frames.append(frame)
+    cap.release()
+    return np.array(frames)
